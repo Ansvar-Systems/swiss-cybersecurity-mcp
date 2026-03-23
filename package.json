@@ -5,13 +5,36 @@
   "description": "NCSC-CH (Swiss National Cyber Security Centre) MCP server — security guidelines, advisories, and cybersecurity frameworks for Switzerland",
   "type": "module",
   "main": "dist/src/index.js",
-  "bin": { "swiss-cybersecurity-mcp": "dist/src/index.js" },
-  "files": ["dist", "server.json"],
-  "engines": { "node": ">=20" },
-  "repository": { "type": "git", "url": "git+https://github.com/Ansvar-Systems/swiss-cybersecurity-mcp.git" },
-  "bugs": { "url": "https://github.com/Ansvar-Systems/swiss-cybersecurity-mcp/issues" },
+  "bin": {
+    "swiss-cybersecurity-mcp": "dist/src/index.js"
+  },
+  "files": [
+    "dist",
+    "server.json"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ansvar-Systems/swiss-cybersecurity-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ansvar-Systems/swiss-cybersecurity-mcp/issues"
+  },
   "homepage": "https://github.com/Ansvar-Systems/swiss-cybersecurity-mcp#readme",
-  "keywords": ["mcp", "model-context-protocol", "ai", "claude", "ncsc-ch", "swiss-cybersecurity", "switzerland", "cybersecurity", "compliance", "ansvar"],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "claude",
+    "ncsc-ch",
+    "swiss-cybersecurity",
+    "switzerland",
+    "cybersecurity",
+    "compliance",
+    "ansvar"
+  ],
   "author": "Ansvar Systems AB <hello@ansvar.ai>",
   "license": "Apache-2.0",
   "scripts": {
@@ -19,11 +42,13 @@
     "dev": "tsx src/http-server.ts",
     "start": "node dist/src/http-server.js",
     "seed": "npx tsx scripts/seed-sample.ts",
+    "ingest": "npx tsx scripts/ingest-ncsc-ch.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "lint": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.12",
+    "@types/cheerio": "^0.22.35",
     "@types/node": "^22.13.4",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
@@ -31,6 +56,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
     "better-sqlite3": "^9.4.3",
+    "cheerio": "^1.2.0",
     "zod": "^3.22.4"
   }
 }
