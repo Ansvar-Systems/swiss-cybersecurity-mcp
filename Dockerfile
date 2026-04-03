@@ -13,7 +13,6 @@ ENV NCSC_CH_DB_PATH=/app/data/ncsc-ch.db
 COPY package.json package-lock.json* ./
 RUN npm ci --omit=dev --ignore-scripts && npm cache clean --force
 COPY --from=builder /app/dist/ dist/
-COPY data/ncsc-ch.db data/ncsc-ch.db
 RUN addgroup --system --gid 1001 mcp && \
     adduser --system --uid 1001 --ingroup mcp mcp && \
     chown -R mcp:mcp /app
